@@ -4,14 +4,23 @@ MAINTAINER Conor Heine <conor.heine@gmail.com>
 
 RUN apt-get update
 RUN apt-get -y install git nodejs
-COPY . /devdocs
+#COPY . /devdocs
 RUN gem install bundler
+
+VOLUME /scripts
+VOLUME /devdocs
 
 WORKDIR /devdocs
 
-RUN bundle install --system
-RUN thor docs:download --all
+RUN bundle install
+#RUN bundle install --system
+#RUN thor docs:download --all
+
+# chinese env
+ENV LANG C.UTF-8
 
 EXPOSE 9292
-CMD rackup -o 0.0.0.0
+COPY entryScripts/entrypoint.sh /root/entrypoint.sh
+ENTRYPOINT ["/root/entrypoint.sh"]
+#CMD rackup -o 0.0.0.0
 
