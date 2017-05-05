@@ -1,2 +1,2 @@
 #!/bin/sh
-cd /devdocs && thor docs:download --all
+cd /devdocs && $BUNDLE_PATH/bin/thor docs:download --all
