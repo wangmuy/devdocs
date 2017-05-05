@@ -1,3 +1,3 @@
 #!/bin/bash
 set -x
-rackup -o 0.0.0.0
+$BUNDLE_PATH/bin/rackup -o 0.0.0.0

@@ -23,10 +23,10 @@ useradd -u $USER_ID --create-home -r -g dkr dkr
 echo "$msg - done"
 
 msg="docker_entrypoint: Copying .gitconfig and .ssh/config to new user home" && echo $msg
-cp /scripts/.gitconfig /home/dkr/.gitconfig && \
+cp /scripts/gitconfig /home/dkr/.gitconfig && \
 chown dkr:dkr /home/dkr/.gitconfig && \
 mkdir -p /home/dkr/.ssh && \
-cp /scripts/.ssh/config /home/dkr/.ssh/config && \
+cp /scripts/ssh_config /home/dkr/.ssh/config && \
 chown dkr:dkr -R /home/dkr/.ssh &&
 echo "$msg - done"
 
@@ -35,7 +35,7 @@ echo "dkr ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 # Default to 'bash' if no arguments are provided
 args="$@"
 if [ -z "$args" ]; then
-  args="bash"
+  args="/scripts/start.sh"
 fi
 
 exec $args
