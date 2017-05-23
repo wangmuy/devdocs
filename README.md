@@ -1,6 +1,9 @@
 # Quick Start
+
+```
 git clone https://github.com/Thibaut/devdocs.git devdocs
 docker run -it -e USER_ID=1000 -e GROUP_ID=1000 -v$(pwd)/devdocs/entryScripts:/scripts -v $(pwd)/devdocs:/devdocs wangmuy/devdocs
+```
 
 # [DevDocs](http://devdocs.io) [![Build Status](https://travis-ci.org/Thibaut/devdocs.svg?branch=master)](https://travis-ci.org/Thibaut/devdocs)
 
